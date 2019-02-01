@@ -7,3 +7,23 @@
 //
 
 import Foundation
+
+class CollectionViewCellModel:BaseViewModel {
+    
+    var tagModels:[TagCollectionCellViewModel] = [TagCollectionCellViewModel]() {
+        didSet{
+            collectionViewReload?()
+        }
+    }
+    
+    var numberOfCells: Int {
+        return tagModels.count
+    }
+    
+    var collectionViewReload:(()->())?
+    
+    init(tagModels:[TagCollectionCellViewModel]){
+        self.tagModels = tagModels
+    }
+    
+}

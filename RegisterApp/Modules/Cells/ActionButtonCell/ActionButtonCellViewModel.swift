@@ -1,5 +1,5 @@
 //
-//  ActionButtonCellModel.swift
+//  ActionButtonCellViewModel.swift
 //  RegisterApp
 //
 //  Created by Çağatay Emekci on 1.02.2019.
@@ -8,6 +8,20 @@
 
 import Foundation
 
-class ActionButtonCellModel:BaseViewModel{
+class ActionButtonCellViewModel:BaseViewModel{
     
+    var buttonName:String = "" {
+        didSet{
+            changeButtonName?()
+        }
+    }
+    
+    var changeButtonName:(()->())?
+    
+    var buttonAction:(()->())?
+    
+    init(buttonName:String, buttonAction:@escaping (()->())){
+        self.buttonName = buttonName
+        self.buttonAction = buttonAction
+    }
 }

@@ -10,6 +10,9 @@ import UIKit
 
 class ActionButtonTableViewCell: BaseTableViewCell {
 
+    @IBOutlet weak var actionButton: UIButton!
+    var actionButtonViewModel: ActionButtonCellViewModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +24,16 @@ class ActionButtonTableViewCell: BaseTableViewCell {
         // Configure the view for the selected state
     }
     
+    override func setup(viewModel: BaseViewModel) {
+        guard let vModel = viewModel as? ActionButtonCellViewModel else {return}
+        self.actionButtonViewModel = vModel
+        self.actionButton.setTitle(vModel.buttonName, for: .normal)
+        setupVM()
+    }
+    
+    fileprivate func setupVM(){}
+    
+    @IBAction func actionButtonTapped(_ sender: Any) {
+         actionButtonViewModel?.buttonAction?()
+    }
 }

@@ -8,7 +8,12 @@
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
+protocol BaseCellProtocol {
+    func setup(viewModel: BaseViewModel)
+}
+class BaseTableViewCell: UITableViewCell,BaseCellProtocol {
+    
+    func setup(viewModel: BaseViewModel) {}
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +26,12 @@ class BaseTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+
+extension UITableViewCell {
+    /// Generated cell identifier derived from class name
+    public static func cellIdentifier() -> String {
+        return String(describing: self)
+    }
 }

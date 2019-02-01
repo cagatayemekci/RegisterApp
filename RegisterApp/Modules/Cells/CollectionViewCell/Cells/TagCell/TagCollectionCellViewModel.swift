@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class TagCollectionCellViewModel:BaseCollectionCellViewModel {
+    
+    var tagText:String? = "" {
+        didSet{
+            tagTextChange?()
+        }
+    }
+    
+    var tagTextChange:(()->())?
+    
+    init(tagText:String) {
+        self.tagText = tagText
+    }
+}

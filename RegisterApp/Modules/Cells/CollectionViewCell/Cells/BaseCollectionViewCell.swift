@@ -8,6 +8,10 @@
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
-    
+protocol BaseCollectionCellProtocol{
+     func setup(viewModel: BaseCollectionCellViewModel)
+}
+
+class BaseCollectionViewCell: UICollectionViewCell, BaseCollectionCellProtocol{
+    func setup(viewModel: BaseCollectionCellViewModel) { }
 }

@@ -1,5 +1,5 @@
 //
-//  DescCellModel.swift
+//  DescCellViewModel.swift
 //  RegisterApp
 //
 //  Created by Çağatay Emekci on 1.02.2019.
@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+class DescCellViewModel :BaseViewModel{
+    
+    var descText:String = "" {
+        didSet{
+            descTextChanged?()
+        }
+    }
+    
+    var descTextChanged:(()->())?
+    
+    init(_ descText: String){
+        self.descText = descText
+    }
+}

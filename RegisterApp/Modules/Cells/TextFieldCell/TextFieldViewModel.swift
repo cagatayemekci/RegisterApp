@@ -7,3 +7,29 @@
 //
 
 import Foundation
+
+class TextFieldViewModel:BaseViewModel {
+    
+    var textFieldText:String = "" {
+        didSet{
+            textFieldTextChanged?()
+        }
+    }
+    
+    var validDataState:Bool = false {
+        didSet{
+            validDataStateChange?(validDataState)
+        }
+    }
+    
+    var textFieldTextChanged:(()->())?
+    var validDataStateChange:((_ state:Bool)->())?
+    
+    var isValidDataClosure:((_ text:String)->Bool)?
+    var setRegisterModel:(()->())?
+    init(type:RegisterScreenCellTypeEnum, isValidDataClosure:@escaping ((_ text:String)->Bool)){
+        super.init()
+        self.isValidDataClosure = isValidDataClosure
+        self.type = type
+    }
+}
