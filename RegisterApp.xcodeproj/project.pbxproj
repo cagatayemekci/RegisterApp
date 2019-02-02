@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		165F909C2205B9490080E0D9 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */; };
+		165F909D2205B9490080E0D9 /* AddTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */; };
+		165F909F2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */; };
+		165F90A32205C3E70080E0D9 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F90A12205C3E70080E0D9 /* ImageTableViewCell.swift */; };
+		165F90A42205C3E70080E0D9 /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 165F90A22205C3E70080E0D9 /* ImageTableViewCell.xib */; };
+		165F90A82205C4150080E0D9 /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F90A72205C4150080E0D9 /* ImageCellViewModel.swift */; };
+		165F90AD2205CE260080E0D9 /* SkillsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F90AC2205CE260080E0D9 /* SkillsViewController.swift */; };
+		165F90AF2205CEF50080E0D9 /* SkillsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F90AE2205CEF50080E0D9 /* SkillsViewModel.swift */; };
 		16AA7220220432DE00BE6862 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA721F220432DE00BE6862 /* AppDelegate.swift */; };
 		16AA7222220432DE00BE6862 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA7221220432DE00BE6862 /* RegisterViewController.swift */; };
 		16AA7225220432DE00BE6862 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16AA7223220432DE00BE6862 /* Main.storyboard */; };
@@ -55,6 +63,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagCollectionViewCell.xib; sourceTree = "<group>"; };
+		165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionCellViewModel.swift; sourceTree = "<group>"; };
+		165F90A12205C3E70080E0D9 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		165F90A22205C3E70080E0D9 /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		165F90A72205C4150080E0D9 /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
+		165F90AC2205CE260080E0D9 /* SkillsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewController.swift; sourceTree = "<group>"; };
+		165F90AE2205CEF50080E0D9 /* SkillsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsViewModel.swift; sourceTree = "<group>"; };
 		16AA721C220432DE00BE6862 /* RegisterApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegisterApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16AA721F220432DE00BE6862 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16AA7221220432DE00BE6862 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +132,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		165F90992205B9240080E0D9 /* AddCell */ = {
+			isa = PBXGroup;
+			children = (
+				165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */,
+				165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */,
+				165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */,
+			);
+			path = AddCell;
+			sourceTree = "<group>";
+		};
+		165F90A02205C3BB0080E0D9 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				165F90A12205C3E70080E0D9 /* ImageTableViewCell.swift */,
+				165F90A22205C3E70080E0D9 /* ImageTableViewCell.xib */,
+				165F90A72205C4150080E0D9 /* ImageCellViewModel.swift */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
+		165F90A92205CCC40080E0D9 /* Skills */ = {
+			isa = PBXGroup;
+			children = (
+				165F90AC2205CE260080E0D9 /* SkillsViewController.swift */,
+				165F90AE2205CEF50080E0D9 /* SkillsViewModel.swift */,
+			);
+			path = Skills;
+			sourceTree = "<group>";
+		};
 		16AA7213220432DE00BE6862 = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +213,7 @@
 		16AA724D220432FC00BE6862 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				165F90A92205CCC40080E0D9 /* Skills */,
 				16AA72522204335200BE6862 /* Cells */,
 				16AA724E2204330400BE6862 /* Register */,
 			);
@@ -197,6 +243,7 @@
 		16AA72522204335200BE6862 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				165F90A02205C3BB0080E0D9 /* ImageCell */,
 				16AA726F22046A5600BE6862 /* ActionButtonCell */,
 				16AA72632204342100BE6862 /* CollectionViewCell */,
 				16AA725C220433DB00BE6862 /* TextFieldCell */,
@@ -259,6 +306,7 @@
 		16AA72762204C62D00BE6862 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				165F90992205B9240080E0D9 /* AddCell */,
 				16AA72792204C70A00BE6862 /* TagCell */,
 				16AA72772204C67900BE6862 /* BaseCollectionViewCell.swift */,
 				16AA72802204D1E400BE6862 /* BaseCollectionCellViewModel.swift */,
@@ -385,6 +433,8 @@
 				16AA722A220432E000BE6862 /* LaunchScreen.storyboard in Resources */,
 				16AA7260220433EF00BE6862 /* TextFieldTableViewCell.xib in Resources */,
 				16AA7227220432E000BE6862 /* Assets.xcassets in Resources */,
+				165F90A42205C3E70080E0D9 /* ImageTableViewCell.xib in Resources */,
+				165F909D2205B9490080E0D9 /* AddTagCollectionViewCell.xib in Resources */,
 				16AA727D2204C75600BE6862 /* TagCollectionViewCell.xib in Resources */,
 				16AA72672204347600BE6862 /* CollectionViewTableViewCell.xib in Resources */,
 				16AA7225220432DE00BE6862 /* Main.storyboard in Resources */,
@@ -412,7 +462,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				165F90A32205C3E70080E0D9 /* ImageTableViewCell.swift in Sources */,
 				16AA72622204340D00BE6862 /* TextFieldViewModel.swift in Sources */,
+				165F90AD2205CE260080E0D9 /* SkillsViewController.swift in Sources */,
 				16AA727522046A8C00BE6862 /* ActionButtonCellViewModel.swift in Sources */,
 				16AA726B2204374400BE6862 /* BaseViewModel.swift in Sources */,
 				16AA725B220433B900BE6862 /* DescCellViewModel.swift in Sources */,
@@ -423,9 +475,13 @@
 				16AA725F220433EF00BE6862 /* TextFieldTableViewCell.swift in Sources */,
 				16AA7222220432DE00BE6862 /* RegisterViewController.swift in Sources */,
 				16AA727C2204C75600BE6862 /* TagCollectionViewCell.swift in Sources */,
+				165F909C2205B9490080E0D9 /* AddTagCollectionViewCell.swift in Sources */,
+				165F90AF2205CEF50080E0D9 /* SkillsViewModel.swift in Sources */,
 				16AA727F2204CAD800BE6862 /* TagCollectionCellViewModel.swift in Sources */,
 				16AA727222046A7400BE6862 /* ActionButtonTableViewCell.swift in Sources */,
 				16AA72662204347600BE6862 /* CollectionViewTableViewCell.swift in Sources */,
+				165F90A82205C4150080E0D9 /* ImageCellViewModel.swift in Sources */,
+				165F909F2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift in Sources */,
 				16AA726E2204669500BE6862 /* RegisterModel.swift in Sources */,
 				16AA7258220433A500BE6862 /* DescTableViewCell.swift in Sources */,
 				16AA72512204334300BE6862 /* RegisterViewModel.swift in Sources */,

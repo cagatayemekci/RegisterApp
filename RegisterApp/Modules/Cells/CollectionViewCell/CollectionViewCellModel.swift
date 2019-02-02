@@ -10,7 +10,7 @@ import Foundation
 
 class CollectionViewCellModel:BaseViewModel {
     
-    var tagModels:[TagCollectionCellViewModel] = [TagCollectionCellViewModel]() {
+    var tagModels:[BaseCollectionCellViewModel] = [BaseCollectionCellViewModel]() {
         didSet{
             collectionViewReload?()
         }
@@ -22,8 +22,19 @@ class CollectionViewCellModel:BaseViewModel {
     
     var collectionViewReload:(()->())?
     
-    init(tagModels:[TagCollectionCellViewModel]){
+    init(tagModels:[BaseCollectionCellViewModel]){
         self.tagModels = tagModels
     }
     
+    
+    func cellIdentifier(for viewModel: BaseCollectionCellViewModel) -> String {
+        switch viewModel {
+        case is AddCollectionCellViewModel:
+            return AddTagCollectionViewCell.cellIdentifier()
+        case is TagCollectionCellViewModel:
+            return TagCollectionViewCell.cellIdentifier()
+        default:
+            fatalError("Unexpected view model type: \(viewModel)")
+        }
+    }
 }

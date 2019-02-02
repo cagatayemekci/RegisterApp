@@ -15,17 +15,26 @@ class RegisterViewModel {
         }
     }
     
+    var tagsArr:[String] = [String]() {
+        didSet {
+           createModelArray()
+        }
+    }
+    
     lazy var registerModel : RegisterModel = {
         return RegisterModel()
     }()
     
     var tableVeiewReload:(()->())?
+    var showSkillsComponent:(()->())?
     var endEditing:(()->())?
     var showMessage:((String)->())?
     
     func createModelArray(){
         var modelArray:[BaseViewModel] = [BaseViewModel]()
-        let descAppVM = DescCellViewModel("User Name asşdak şalskdşalskd aşlsdk asd asdk aşsldk aşlsdk aşlsd kaşlkd aşldk ashdaşsdk aşlsdk asşldk asşld kasşldk aşld kaşld kalşsd kaşld asşldkaşls aldkaşsldk aşlsdkaşlsdk aşlkd aşlsdk aşlsdk aşlsd kaşlsd kaşlsd kaşls dkaşldkaşld kasşld kasşld kaşsld kaşld kaşld kasşld kaşlsd kaşld kqwkdp qwk dopqdk qopd kqpowdk q dasişd laisşdl aişsdl aişsdl aişsdl aişsd laisşdl aişsdl aişsdl aisşdl aişsdl aisşdl asişdl aişdl aidsşl asişdl aid aşl sd ialşdişaldaişl aişdl aişdl aişdl ")
+        let image = ImageCellViewModel("backimage")
+        let descAppVM = DescCellViewModel("Welcome to Register App")
+        let skillsVM = DescCellViewModel("Skills")
         let descFirtNameVM = DescCellViewModel("Fist Name ")
         let firstNameTextFieldVM = TextFieldViewModel(type: .firstName,isValidDataClosure: isValidTextFistName)
         firstNameTextFieldVM.setRegisterModel = setRegisterModel(viewModel: firstNameTextFieldVM)
@@ -34,15 +43,16 @@ class RegisterViewModel {
         surNameTextFieldVM.setRegisterModel = setRegisterModel(viewModel: surNameTextFieldVM)
         let actionButton = ActionButtonCellViewModel(buttonName: "Tamam", buttonAction:buttonAction)
         
-        let tag = CollectionViewCellModel(tagModels: createTagModels())
-        
+        let tag = CollectionViewCellModel(tagModels: createTagModels(tagsString: tagsArr))
+        modelArray.append(image)
         modelArray.append(descAppVM)
         modelArray.append(descFirtNameVM)
         modelArray.append(firstNameTextFieldVM)
         modelArray.append(descSurNameVM)
         modelArray.append(surNameTextFieldVM)
-        modelArray.append(actionButton)
+        modelArray.append(skillsVM)
         modelArray.append(tag)
+        modelArray.append(actionButton)
         vModelArray = modelArray
     } 
     
@@ -86,6 +96,10 @@ class RegisterViewModel {
         }
     }
     
+    var numberOfCells: Int {
+        return vModelArray.count
+    }
+    
     func cellIdentifier(for viewModel: BaseViewModel) -> String {
         switch viewModel {
         case is TextFieldViewModel:
@@ -96,25 +110,23 @@ class RegisterViewModel {
             return ActionButtonTableViewCell.cellIdentifier()
         case is CollectionViewCellModel:
             return CollectionViewTableViewCell.cellIdentifier()
+        case is ImageCellViewModel:
+            return ImageTableViewCell.cellIdentifier()
         default:
             fatalError("Unexpected view model type: \(viewModel)")
         }
     }
     
+    lazy var cellPressed:(()->())  = { [weak self] () in
+        guard let self = self else {return}
+        self.showSkillsComponent?()
+    }
     
-    func createTagModels() -> [TagCollectionCellViewModel]{
-        var tags = [TagCollectionCellViewModel]()
-        let tagModel = TagCollectionCellViewModel(tagText: "Spor")
-        let tagModel1 = TagCollectionCellViewModel(tagText: "Eğlence")
-        let tagModel2 = TagCollectionCellViewModel(tagText: "İş Hayatı")
-        let tagModel3 = TagCollectionCellViewModel(tagText: "Dans")
-        tags.append(tagModel)
-        tags.append(tagModel1)
-        tags.append(tagModel2)
-        tags.append(tagModel3)
-        tags.append(TagCollectionCellViewModel(tagText: "Gezi"))
-        tags.append(TagCollectionCellViewModel(tagText: "Dağcılık"))
-        tags.append(TagCollectionCellViewModel(tagText: "Yürüyüş"))
+    func createTagModels(tagsString:[String]) -> [BaseCollectionCellViewModel]{
+        var tags = [BaseCollectionCellViewModel]()
+        for tag in tagsString {
+            tags.append(TagCollectionCellViewModel(tagText: tag))
+        }
         return tags
     }
 }

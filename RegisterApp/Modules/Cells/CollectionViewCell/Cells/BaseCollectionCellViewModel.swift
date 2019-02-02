@@ -9,4 +9,5 @@
 import Foundation
 
 class BaseCollectionCellViewModel {
+     var cellPressed: (() -> Void)?
 }

@@ -15,3 +15,12 @@ protocol BaseCollectionCellProtocol{
 class BaseCollectionViewCell: UICollectionViewCell, BaseCollectionCellProtocol{
     func setup(viewModel: BaseCollectionCellViewModel) { }
 }
+
+
+
+extension UICollectionViewCell {
+    /// Generated cell identifier derived from class name
+    public static func cellIdentifier() -> String {
+        return String(describing: self)
+    }
+}

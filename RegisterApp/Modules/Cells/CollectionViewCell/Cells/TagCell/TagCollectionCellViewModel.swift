@@ -22,3 +22,4 @@ class TagCollectionCellViewModel:BaseCollectionCellViewModel {
         self.tagText = tagText
     }
 }
+

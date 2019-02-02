@@ -18,6 +18,7 @@ class CollectionViewTableViewCell: BaseTableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         tagCollectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagCollectionViewCell")
+        tagCollectionView.register(UINib(nibName: "AddTagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddTagCollectionViewCell")
         tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
         flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
@@ -62,14 +63,18 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row] else {return UICollectionViewCell()}
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath as IndexPath) as! TagCollectionViewCell
+        let cellId = collectionViewViewModel?.cellIdentifier(for: rowViewModel)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId ?? "", for: indexPath as IndexPath)
         if let cell = cell as? BaseCollectionViewCell {
             cell.setup(viewModel: rowViewModel)
         }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
+        let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row]
+        rowViewModel?.cellPressed?()
     }
 }

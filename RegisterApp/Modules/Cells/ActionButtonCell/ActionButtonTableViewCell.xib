@@ -20,10 +20,13 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eF9-B8-WHC">
                         <rect key="frame" x="8" y="8" width="304" height="50"/>
+                        <color key="backgroundColor" red="0.59215686274509804" green="0.63529411764705879" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="Je9-87-jgf"/>
                         </constraints>
-                        <state key="normal" title="Button"/>
+                        <state key="normal" title="Button">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
                         <connections>
                             <action selector="actionButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yvZ-t2-fCE"/>
                         </connections>

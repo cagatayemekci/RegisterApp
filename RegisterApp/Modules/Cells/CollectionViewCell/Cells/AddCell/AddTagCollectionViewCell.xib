@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AddTagCollectionViewCell" id="gTV-IL-0wX" customClass="AddTagCollectionViewCell" customModule="RegisterApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLL-pk-8tt">
+                        <rect key="frame" x="1" y="1" width="48" height="48"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labeldfasdasd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pk-aC-FAw">
+                                <rect key="frame" x="6" y="4" width="36" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="E00-Zp-pdk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.98823529409999999" green="0.38431372549999998" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4pk-aC-FAw" firstAttribute="top" secondItem="PLL-pk-8tt" secondAttribute="top" constant="4" id="4XC-at-Spe"/>
+                            <constraint firstItem="4pk-aC-FAw" firstAttribute="leading" secondItem="PLL-pk-8tt" secondAttribute="leading" constant="6" id="Lhf-PB-W7D"/>
+                            <constraint firstAttribute="trailing" secondItem="4pk-aC-FAw" secondAttribute="trailing" constant="6" id="hjv-mR-Tsu"/>
+                            <constraint firstAttribute="bottom" secondItem="4pk-aC-FAw" secondAttribute="bottom" constant="4" id="mM4-w1-mA3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PLL-pk-8tt" secondAttribute="bottom" constant="1" id="9Ow-zN-3FK"/>
+                <constraint firstItem="PLL-pk-8tt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="1" id="CPM-ow-1gB"/>
+                <constraint firstAttribute="trailing" secondItem="PLL-pk-8tt" secondAttribute="trailing" constant="1" id="jUA-wb-RNe"/>
+                <constraint firstItem="PLL-pk-8tt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="kCD-1a-dIt"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="addTagLabel" destination="4pk-aC-FAw" id="eSe-qh-5iT"/>
+                <outlet property="backView" destination="PLL-pk-8tt" id="qjL-Kb-lY9"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+</document>

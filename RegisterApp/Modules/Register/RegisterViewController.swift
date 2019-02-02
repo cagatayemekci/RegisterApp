@@ -12,6 +12,8 @@ class RegisterViewController: UIViewController {
     
     @IBOutlet weak var registerTableView: UITableView!
     
+    @IBOutlet weak var containerViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var container: UIView!
     lazy var registerViewModel: RegisterViewModel = {
         return RegisterViewModel()
     }()
@@ -24,8 +26,22 @@ class RegisterViewController: UIViewController {
         registerTableView.register(UINib(nibName: "DescTableViewCell", bundle: nil), forCellReuseIdentifier: "DescTableViewCell")
         registerTableView.register(UINib(nibName: "ActionButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "ActionButtonTableViewCell")
         registerTableView.register(UINib(nibName: "CollectionViewTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectionViewTableViewCell")
+        registerTableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
+        setupSkillsViewController()
         setupVM()
         registerViewModel.createModelArray()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     fileprivate func setupVM() {
@@ -44,6 +60,13 @@ class RegisterViewController: UIViewController {
             guard let self = self else {return}
             self.showAlert(title:"",msg: msg)
         }
+        
+        registerViewModel.showSkillsComponent =  {[weak self] () in
+            guard let self = self else {return}
+            let swipeGesture = UISwipeGestureRecognizer()
+            swipeGesture.direction = .up
+            self.handleGesture(gesture: swipeGesture)
+        }
     }
     
     fileprivate func showAlert(title:String, msg:String){
@@ -53,13 +76,12 @@ class RegisterViewController: UIViewController {
         }))
         self.present(alert, animated: true, completion: nil)
     }
-    
 }
 
 extension RegisterViewController: UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return registerViewModel.vModelArray.count
+        return registerViewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,7 +94,68 @@ extension RegisterViewController: UITableViewDelegate,UITableViewDataSource {
         cell.layoutIfNeeded()
         return cell
     }
-    
-    
 }
 
+
+extension RegisterViewController {
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardHeight = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height {
+            registerTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        UIView.animate(withDuration: 0.2, animations: {
+            // For some reason adding inset in keyboardWillShow is animated by itself but removing is not, that's why we have to use animateWithDuration here
+            self.registerTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        })
+    }
+}
+
+extension RegisterViewController {
+    func setupSkillsViewController(){
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeDown.direction = .down
+        self.view.addGestureRecognizer(swipeDown)
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.handleGesture(gesture:)))
+        swipeUp.direction = .up
+        container.addGestureRecognizer(swipeUp)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let addViewController = storyboard.instantiateViewController(withIdentifier: "SkillsViewController") as? SkillsViewController else {return}
+        addViewController.didMove(toParent: self)
+        self.addChild(addViewController)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if(segue.identifier == "conteinerId"){
+            let embedVC = segue.destination as! SkillsViewController
+            embedVC.delegate = self
+        }
+    }
+    
+    @objc func handleGesture(gesture: UISwipeGestureRecognizer) -> Void {
+        if gesture.direction == UISwipeGestureRecognizer.Direction.up {
+            print("Swipe Up")
+            self.containerViewBottomConstraint.constant = 0
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+        }
+        if gesture.direction == UISwipeGestureRecognizer.Direction.down {
+            self.containerViewBottomConstraint.constant = -220
+            UIView.animate(withDuration: 0.5) {
+                self.view.layoutIfNeeded()
+            }
+            
+        }
+    }
+}
+
+extension RegisterViewController:SkillsViewControllerDelegate{
+    func updateSkillsArray(array: [String]) {
+        registerViewModel.tagsArr = array
+    }
+}
