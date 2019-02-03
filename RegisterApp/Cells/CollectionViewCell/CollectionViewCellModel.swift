@@ -10,14 +10,14 @@ import Foundation
 
 class CollectionViewCellModel:BaseViewModel {
     
-    var tagModels:[BaseCollectionCellViewModel] = [BaseCollectionCellViewModel]() {
+    var tagModels:[BaseCollectionCellViewModel]? = [BaseCollectionCellViewModel]() {
         didSet{
             collectionViewReload?()
         }
     }
     
     var numberOfCells: Int {
-        return tagModels.count
+        return tagModels?.count ?? 0
     }
     
     var collectionViewReload:(()->())?

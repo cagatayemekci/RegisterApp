@@ -12,11 +12,11 @@ class AddCollectionCellViewModel:BaseCollectionCellViewModel {
     
     var addTagText:String? = "" {
         didSet{
-            addTagTextChange?()
+            addTagTextChange?(addTagText ?? "")
         }
     }
     
-    var addTagTextChange:(()->())?
+    var addTagTextChange:((String)->())?
     init(addTagText:String) {
         self.addTagText = addTagText
     }

@@ -19,18 +19,18 @@ class TagCollectionCellViewModel:BaseCollectionCellViewModel {
     
     var tagText:String? = "" {
         didSet{
-            tagTextChange?()
+            tagTextChange?(tagText ?? "")
         }
     }
     
     var isSelected:Bool? = false {
         didSet{
-            isSelectedChange?()
+            isSelectedChange?(isSelected ?? false)
         }
     }
     
-    var tagTextChange:(()->())?
-    var isSelectedChange:(()->())?
+    var tagTextChange:((String)->())?
+    var isSelectedChange:((Bool)->())?
     
     init(tagModel:TagModel) {
         self.tagModel = tagModel

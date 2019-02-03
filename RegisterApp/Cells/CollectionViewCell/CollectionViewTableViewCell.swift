@@ -61,7 +61,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row] else {return UICollectionViewCell()}
+        guard let rowViewModel = collectionViewViewModel?.tagModels?[indexPath.row] else {return UICollectionViewCell()}
         let cellId = collectionViewViewModel?.cellIdentifier(for: rowViewModel)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId ?? "", for: indexPath as IndexPath)
         if let cell = cell as? BaseCollectionViewCell {
@@ -72,7 +72,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
-        let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row]
+        let rowViewModel = collectionViewViewModel?.tagModels?[indexPath.row]
         if let model = rowViewModel as? TagCollectionCellViewModel{
             model.tagModel?.isSelected = true
         }else{

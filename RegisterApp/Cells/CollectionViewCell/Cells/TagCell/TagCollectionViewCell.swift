@@ -28,11 +28,11 @@ class TagCollectionViewCell: BaseCollectionViewCell {
     
     override func setup(viewModel: BaseCollectionCellViewModel) {
         guard let vModel = viewModel as? TagCollectionCellViewModel else {return}
-        vModel.tagTextChange = {[weak self] in
+        vModel.tagTextChange = {[weak self] tagText in
             guard  let self = self else {
                 return
             }
-            self.tagLabel.text = vModel.tagText
+            self.tagLabel.text = tagText
         }
         
         vModel.cellPressed = {[weak self] in
@@ -42,17 +42,17 @@ class TagCollectionViewCell: BaseCollectionViewCell {
             self.tagLabel.textColor = #colorLiteral(red: 0.9996010661, green: 0.4771931171, blue: 0.4261316061, alpha: 1)
         }
         
-        vModel.isSelectedChange = {[weak self] in
+        vModel.isSelectedChange = {[weak self] selected in
             guard  let self = self else {
                 return
             }
-            if vModel.isSelected ?? false {
+            if selected {
                 self.tagLabel.textColor = #colorLiteral(red: 0.9996010661, green: 0.4771931171, blue: 0.4261316061, alpha: 1)
             }else{
                 self.tagLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             }
         }
-        tagColletionVModel = vModel
-        tagColletionVModel?.tagModel = vModel.tagModel
+         tagColletionVModel = vModel
+         tagColletionVModel?.tagModel = vModel.tagModel
     }
 }

@@ -28,13 +28,13 @@ class AddTagCollectionViewCell: BaseCollectionViewCell {
     
     override func setup(viewModel: BaseCollectionCellViewModel) {
         guard let vModel = viewModel as? AddCollectionCellViewModel else {return}
-        self.addTagLabel.text = vModel.addTagText
-        vModel.addTagTextChange = {[weak self] in
-            guard  let self = self else {
+        vModel.addTagTextChange = {[weak self] text in
+            guard let self = self else {
                 return
             }
-            self.addTagLabel.text = vModel.addTagText
+            self.addTagLabel.text = text
         }
+        self.addTagLabel.text = vModel.addTagText
         addTagCellViewModel = vModel
     }
     

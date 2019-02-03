@@ -128,9 +128,11 @@ class RegisterViewModel {
     }
     
     func createTagModels(tags:[TagModel]) -> [BaseCollectionCellViewModel]{
+        
         var baseCollectionCellViewModel = [BaseCollectionCellViewModel]()
+        
         for tag in tags {
-            baseCollectionCellViewModel.append(TagCollectionCellViewModel(tagModel: tag))
+            baseCollectionCellViewModel.append(TagCollectionCellViewModel(tagModel: TagModel(name: tag.name ?? "", isSelected: tag.isSelected ?? false)))
         }
         let addTagVM = AddCollectionCellViewModel(addTagText: "Add +")
         addTagVM.cellPressed = cellPressed
