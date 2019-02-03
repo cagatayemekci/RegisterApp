@@ -155,7 +155,7 @@ extension RegisterViewController {
 }
 
 extension RegisterViewController:SkillsViewControllerDelegate{
-    func updateSkillsArray(array: [String]) {
+    func updateSkillsArray(array: [TagModel]) {
         registerViewModel.tagsArr = array
     }
 }

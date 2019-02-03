@@ -10,16 +10,30 @@ import Foundation
 
 class TagCollectionCellViewModel:BaseCollectionCellViewModel {
     
+    var tagModel:TagModel? = nil {
+        didSet{
+            tagText = tagModel?.name
+            isSelected = tagModel?.isSelected
+        }
+    }
+    
     var tagText:String? = "" {
         didSet{
             tagTextChange?()
         }
     }
     
-    var tagTextChange:(()->())?
+    var isSelected:Bool? = false {
+        didSet{
+            isSelectedChange?()
+        }
+    }
     
-    init(tagText:String) {
-        self.tagText = tagText
+    var tagTextChange:(()->())?
+    var isSelectedChange:(()->())?
+    
+    init(tagModel:TagModel) {
+        self.tagModel = tagModel
     }
 }
 

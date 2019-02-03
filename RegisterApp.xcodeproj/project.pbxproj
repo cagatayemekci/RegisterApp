@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163F71DA2206496B004A8D8E /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163F71D92206496B004A8D8E /* TagModel.swift */; };
 		165F909C2205B9490080E0D9 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */; };
 		165F909D2205B9490080E0D9 /* AddTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */; };
 		165F909F2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		163F71D92206496B004A8D8E /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
 		165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionCellViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				16AA726D2204669500BE6862 /* RegisterModel.swift */,
+				163F71D92206496B004A8D8E /* TagModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				165F909F2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift in Sources */,
 				16AA726E2204669500BE6862 /* RegisterModel.swift in Sources */,
 				16AA7258220433A500BE6862 /* DescTableViewCell.swift in Sources */,
+				163F71DA2206496B004A8D8E /* TagModel.swift in Sources */,
 				16AA72512204334300BE6862 /* RegisterViewModel.swift in Sources */,
 				16AA7220220432DE00BE6862 /* AppDelegate.swift in Sources */,
 			);

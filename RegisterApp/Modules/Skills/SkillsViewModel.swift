@@ -16,8 +16,8 @@ class SkillsViewModel {
         }
     }
     
-    var selectedTags:[String] = {
-        return [String]()
+    var selectedTags:[TagModel] = {
+        return [TagModel]()
     }()
     
     var numberOfCells: Int {
@@ -27,7 +27,7 @@ class SkillsViewModel {
     var collectionViewReload:(()->())?
     var addedTags:(()->())?
     
-    func addTags(tag:String){
+    func addTags(tag:TagModel){
         selectedTags.append(tag)
         addedTags?()
     }
@@ -45,16 +45,17 @@ class SkillsViewModel {
     
     func createTagModels(){
         var tags = [BaseCollectionCellViewModel]()
-        tags.append(TagCollectionCellViewModel(tagText: "Communication"))
-        tags.append(TagCollectionCellViewModel(tagText: "Teamwork"))
-        tags.append(TagCollectionCellViewModel(tagText: "Creativity"))
-        tags.append(TagCollectionCellViewModel(tagText: "Leadership"))
-        tags.append(TagCollectionCellViewModel(tagText: "Time Management"))
-        tags.append(TagCollectionCellViewModel(tagText: "Decision Making"))
-        tags.append(TagCollectionCellViewModel(tagText: "Self-motivation"))
-        tags.append(TagCollectionCellViewModel(tagText: "Conflict Resolution"))
-        tags.append(TagCollectionCellViewModel(tagText: "Adaptability"))
-        tags.append(TagCollectionCellViewModel(tagText: "Ability to Work Under Pressure"))
+
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Communication", isSelected: false)))
+        tags.append(TagCollectionCellViewModel( tagModel: TagModel(name: "Teamwork", isSelected: false)))
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Creativity", isSelected: false)))
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Leadership", isSelected: false)))
+        
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Time Management", isSelected: false)))
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Decision Making", isSelected: false)))
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Self-motivation", isSelected: false)))
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Conflict Resolution", isSelected: false)))
+        tags.append(TagCollectionCellViewModel(tagModel: TagModel(name: "Adaptability", isSelected: false)))
         tagModels = tags
     }
 }

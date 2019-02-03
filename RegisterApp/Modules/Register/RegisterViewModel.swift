@@ -15,7 +15,7 @@ class RegisterViewModel {
         }
     }
     
-    var tagsArr:[String] = [String]() {
+    var tagsArr:[TagModel] = [TagModel]() {
         didSet {
            createModelArray()
         }
@@ -43,7 +43,7 @@ class RegisterViewModel {
         surNameTextFieldVM.setRegisterModel = setRegisterModel(viewModel: surNameTextFieldVM)
         let actionButton = ActionButtonCellViewModel(buttonName: "Tamam", buttonAction:buttonAction)
         
-        let tag = CollectionViewCellModel(tagModels: createTagModels(tagsString: tagsArr))
+        let tag = CollectionViewCellModel(tagModels: createTagModels(tags: tagsArr))
         modelArray.append(image)
         modelArray.append(descAppVM)
         modelArray.append(descFirtNameVM)
@@ -122,12 +122,12 @@ class RegisterViewModel {
         self.showSkillsComponent?()
     }
     
-    func createTagModels(tagsString:[String]) -> [BaseCollectionCellViewModel]{
-        var tags = [BaseCollectionCellViewModel]()
-        for tag in tagsString {
-            tags.append(TagCollectionCellViewModel(tagText: tag))
+    func createTagModels(tags:[TagModel]) -> [BaseCollectionCellViewModel]{
+        var baseCollectionCellViewModel = [BaseCollectionCellViewModel]()
+        for tag in tags {
+            baseCollectionCellViewModel.append(TagCollectionCellViewModel(tagModel: tag))
         }
-        return tags
+        return baseCollectionCellViewModel
     }
 }
 

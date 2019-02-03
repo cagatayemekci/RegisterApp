@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SkillsViewControllerDelegate{
-    func updateSkillsArray(array:[String])
+    func updateSkillsArray(array:[TagModel])
 }
 
 class SkillsViewController: UIViewController {
@@ -71,8 +71,8 @@ extension SkillsViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
         guard let rowViewModel = skillsViewModel.tagModels[indexPath.row] as? TagCollectionCellViewModel else {return}
-        if let text = rowViewModel.tagText {
-            skillsViewModel.addTags(tag: text)
+        if let model = rowViewModel.tagModel {
+            skillsViewModel.addTags(tag: model )
         }
     }
 }

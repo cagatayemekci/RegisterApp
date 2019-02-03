@@ -27,7 +27,8 @@ class TagCollectionViewCell: BaseCollectionViewCell {
     
     override func setup(viewModel: BaseCollectionCellViewModel) {
         guard let vModel = viewModel as? TagCollectionCellViewModel else {return}
-        self.tagLabel.text = vModel.tagText
+        self.tagLabel.text = vModel.tagModel?.name
+        self.isSelected = vModel.tagModel?.isSelected ?? false
         vModel.tagTextChange = {[weak self] in
             guard  let self = self else {
                 return
@@ -39,9 +40,20 @@ class TagCollectionViewCell: BaseCollectionViewCell {
             guard  let self = self else {
                 return
             }
-            
             self.tagLabel.textColor = #colorLiteral(red: 0.9996010661, green: 0.4771931171, blue: 0.4261316061, alpha: 1)
-           
         }
+        
+        vModel.isSelectedChange = {[weak self] in
+            guard  let self = self else {
+                return
+            }
+            if vModel.isSelected ?? false {
+                self.tagLabel.textColor = #colorLiteral(red: 0.9996010661, green: 0.4771931171, blue: 0.4261316061, alpha: 1)
+            }else{
+                self.tagLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            }
+        }
+        
+        
     }
 }

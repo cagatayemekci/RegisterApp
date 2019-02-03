@@ -75,6 +75,9 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
         let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row]
-        rowViewModel?.cellPressed?()
+        
+        if let model = rowViewModel as? TagCollectionCellViewModel{
+            model.tagModel?.isSelected = true
+        }
     }
 }
