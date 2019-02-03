@@ -44,6 +44,8 @@ class RegisterViewModel {
         let actionButton = ActionButtonCellViewModel(buttonName: "Tamam", buttonAction:buttonAction)
         
         let tag = CollectionViewCellModel(tagModels: createTagModels(tags: tagsArr))
+        
+        let picker = PickerViewModel(pickerDatas: ["1","2","3","1"])
         modelArray.append(image)
         modelArray.append(descAppVM)
         modelArray.append(descFirtNameVM)
@@ -53,6 +55,7 @@ class RegisterViewModel {
         modelArray.append(skillsVM)
         modelArray.append(tag)
         modelArray.append(actionButton)
+        modelArray.append(picker)
         vModelArray = modelArray
     } 
     
@@ -112,6 +115,8 @@ class RegisterViewModel {
             return CollectionViewTableViewCell.cellIdentifier()
         case is ImageCellViewModel:
             return ImageTableViewCell.cellIdentifier()
+        case is PickerViewModel:
+            return PickerTableViewCell.cellIdentifier()
         default:
             fatalError("Unexpected view model type: \(viewModel)")
         }
@@ -127,7 +132,9 @@ class RegisterViewModel {
         for tag in tags {
             baseCollectionCellViewModel.append(TagCollectionCellViewModel(tagModel: tag))
         }
-        baseCollectionCellViewModel.append(AddCollectionCellViewModel(addTagText: "Add +", cellPressed: cellPressed))
+        let addTagVM = AddCollectionCellViewModel(addTagText: "Add +")
+        addTagVM.cellPressed = cellPressed
+        baseCollectionCellViewModel.append(addTagVM)
         return baseCollectionCellViewModel
     }
 }

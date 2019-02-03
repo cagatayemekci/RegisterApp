@@ -12,6 +12,7 @@ class AddTagCollectionViewCell: BaseCollectionViewCell {
 
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var addTagLabel: UILabel!
+    var addTagCellViewModel:AddCollectionCellViewModel?
     override func awakeFromNib() {
         super.awakeFromNib()
           setupBackView()
@@ -34,6 +35,7 @@ class AddTagCollectionViewCell: BaseCollectionViewCell {
             }
             self.addTagLabel.text = vModel.addTagText
         }
+        addTagCellViewModel = vModel
     }
     
 }

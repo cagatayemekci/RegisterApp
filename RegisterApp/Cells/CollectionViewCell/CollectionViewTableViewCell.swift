@@ -10,18 +10,23 @@ import UIKit
 
 class CollectionViewTableViewCell: BaseTableViewCell {
 
+    @IBOutlet weak var widthConst: NSLayoutConstraint!
     @IBOutlet weak var heightConst: NSLayoutConstraint!
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var tagCollectionView: UICollectionView!
     var collectionViewViewModel:CollectionViewCellModel?
-    
+    let columnLayout = FlowLayout(
+        minimumInteritemSpacing: 10,
+        minimumLineSpacing: 10,
+        sectionInset: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    )
     override func awakeFromNib() {
         super.awakeFromNib()
         tagCollectionView.register(UINib(nibName: "TagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TagCollectionViewCell")
         tagCollectionView.register(UINib(nibName: "AddTagCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddTagCollectionViewCell")
         tagCollectionView.delegate = self
         tagCollectionView.dataSource = self
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        tagCollectionView?.collectionViewLayout = columnLayout
+        tagCollectionView?.contentInsetAdjustmentBehavior = .always
         // Initialization code
     }
     
@@ -31,27 +36,21 @@ class CollectionViewTableViewCell: BaseTableViewCell {
             self.layoutIfNeeded()
             self.setNeedsLayout()
             self.tagCollectionView.reloadData()
-            
         }
     }
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
         self.heightConst.constant = self.tagCollectionView.contentSize.height;
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        self.widthConst.constant = self.tagCollectionView.contentSize.width;
     }
     
     override func setup(viewModel: BaseViewModel) {
         guard let vModel = viewModel as? CollectionViewCellModel else {return}
         self.collectionViewViewModel = vModel
-        self.collectionViewViewModel?.tagModels = vModel.tagModels
-        self.tagCollectionView.reloadData()
         setupVM()
+        self.collectionViewViewModel?.tagModels = vModel.tagModels
+
     }
 }
 
@@ -76,8 +75,49 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row]
         if let model = rowViewModel as? TagCollectionCellViewModel{
             model.tagModel?.isSelected = true
+        }else{
+            rowViewModel?.cellPressed?()
         }
-        rowViewModel?.cellPressed?()
         
     }
+}
+
+class FlowLayout: UICollectionViewFlowLayout {
+    
+    required init(minimumInteritemSpacing: CGFloat = 0, minimumLineSpacing: CGFloat = 0, sectionInset: UIEdgeInsets = .zero) {
+        super.init()
+        
+        estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        self.minimumInteritemSpacing = minimumInteritemSpacing
+        self.minimumLineSpacing = minimumLineSpacing
+        self.sectionInset = sectionInset
+        sectionInsetReference = .fromSafeArea
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        let layoutAttributes = super.layoutAttributesForElements(in: rect)!.map { $0.copy() as! UICollectionViewLayoutAttributes }
+        guard scrollDirection == .vertical else { return layoutAttributes }
+        
+        // Filter attributes to compute only cell attributes
+        let cellAttributes = layoutAttributes.filter({ $0.representedElementCategory == .cell })
+        
+        // Group cell attributes by row (cells with same vertical center) and loop on those groups
+        for (_, attributes) in Dictionary(grouping: cellAttributes, by: { ($0.center.y / 10).rounded(.up) * 10 }) {
+            // Set the initial left inset
+            var leftInset = sectionInset.left
+            
+            // Loop on cells to adjust each cell's origin and prepare leftInset for the next cell
+            for attribute in attributes {
+                attribute.frame.origin.x = leftInset
+                leftInset = attribute.frame.maxX + minimumInteritemSpacing
+            }
+        }
+        
+        return layoutAttributes
+    }
+    
 }

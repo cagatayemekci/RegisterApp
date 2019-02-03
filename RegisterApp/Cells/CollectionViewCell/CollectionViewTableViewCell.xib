@@ -22,6 +22,7 @@
                         <rect key="frame" x="8" y="8" width="304" height="27.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="999" constant="100" id="nxh-f9-lVR"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="999" constant="10" id="oka-hj-iZQ"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="Io6-QR-MUT">
@@ -33,7 +34,7 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="veI-QV-sJA" secondAttribute="trailing" constant="8" id="6Yz-fL-0py"/>
+                    <constraint firstAttribute="trailing" secondItem="veI-QV-sJA" secondAttribute="trailing" priority="999" constant="8" id="6Yz-fL-0py"/>
                     <constraint firstItem="veI-QV-sJA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="7LK-Yn-6Ed"/>
                     <constraint firstAttribute="bottom" secondItem="veI-QV-sJA" secondAttribute="bottom" priority="999" constant="8" id="RDu-JH-iXF"/>
                     <constraint firstItem="veI-QV-sJA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="WJM-2d-DaB"/>
@@ -41,9 +42,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="flowLayout" destination="Io6-QR-MUT" id="Omt-9g-vvS"/>
                 <outlet property="heightConst" destination="oka-hj-iZQ" id="Uig-uo-Six"/>
                 <outlet property="tagCollectionView" destination="veI-QV-sJA" id="m6W-0q-zeR"/>
+                <outlet property="widthConst" destination="nxh-f9-lVR" id="R05-IZ-V08"/>
             </connections>
         </tableViewCell>
     </objects>

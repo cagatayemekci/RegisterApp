@@ -22,14 +22,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dib-PX-eWm">
-                                <rect key="frame" x="277" y="15.5" width="35" height="35"/>
+                                <rect key="frame" x="287" y="20.5" width="25" height="25"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Efw-40-9dA"/>
-                                    <constraint firstAttribute="width" constant="35" id="d37-6r-tNO"/>
+                                    <constraint firstAttribute="height" constant="25" id="Efw-40-9dA"/>
+                                    <constraint firstAttribute="width" constant="25" id="d37-6r-tNO"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xdv-Wv-Lfm">
-                                <rect key="frame" x="8" y="8" width="261" height="50"/>
+                                <rect key="frame" x="8" y="8" width="271" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2TX-3B-4lB"/>
                                 </constraints>

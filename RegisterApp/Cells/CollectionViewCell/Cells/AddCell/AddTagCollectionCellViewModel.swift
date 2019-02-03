@@ -17,9 +17,7 @@ class AddCollectionCellViewModel:BaseCollectionCellViewModel {
     }
     
     var addTagTextChange:(()->())?
-    init(addTagText:String,cellPressed: @escaping (() -> Void)) {
-        super.init()
+    init(addTagText:String) {
         self.addTagText = addTagText
-        self.cellPressed = cellPressed
     }
 }

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		163F71DA2206496B004A8D8E /* TagModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163F71D92206496B004A8D8E /* TagModel.swift */; };
+		163F71DE220701B3004A8D8E /* PickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163F71DC220701B3004A8D8E /* PickerTableViewCell.swift */; };
+		163F71DF220701B3004A8D8E /* PickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 163F71DD220701B3004A8D8E /* PickerTableViewCell.xib */; };
+		163F71E1220701D9004A8D8E /* PickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163F71E0220701D9004A8D8E /* PickerViewModel.swift */; };
 		165F909C2205B9490080E0D9 /* AddTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */; };
 		165F909D2205B9490080E0D9 /* AddTagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */; };
 		165F909F2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */; };
@@ -65,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		163F71D92206496B004A8D8E /* TagModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagModel.swift; sourceTree = "<group>"; };
+		163F71DC220701B3004A8D8E /* PickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerTableViewCell.swift; sourceTree = "<group>"; };
+		163F71DD220701B3004A8D8E /* PickerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerTableViewCell.xib; sourceTree = "<group>"; };
+		163F71E0220701D9004A8D8E /* PickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModel.swift; sourceTree = "<group>"; };
 		165F909A2205B9490080E0D9 /* AddTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		165F909B2205B9490080E0D9 /* AddTagCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTagCollectionViewCell.xib; sourceTree = "<group>"; };
 		165F909E2205B95F0080E0D9 /* AddTagCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTagCollectionCellViewModel.swift; sourceTree = "<group>"; };
@@ -134,6 +140,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		163F71DB22070171004A8D8E /* PickerCell */ = {
+			isa = PBXGroup;
+			children = (
+				163F71DC220701B3004A8D8E /* PickerTableViewCell.swift */,
+				163F71E0220701D9004A8D8E /* PickerViewModel.swift */,
+				163F71DD220701B3004A8D8E /* PickerTableViewCell.xib */,
+			);
+			path = PickerCell;
+			sourceTree = "<group>";
+		};
 		165F90992205B9240080E0D9 /* AddCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +204,7 @@
 			children = (
 				16AA726C2204667D00BE6862 /* Models */,
 				16AA724F2204331800BE6862 /* Main */,
+				16AA72522204335200BE6862 /* Cells */,
 				16AA724D220432FC00BE6862 /* Modules */,
 				16AA722B220432E000BE6862 /* Info.plist */,
 			);
@@ -216,7 +233,6 @@
 			isa = PBXGroup;
 			children = (
 				165F90A92205CCC40080E0D9 /* Skills */,
-				16AA72522204335200BE6862 /* Cells */,
 				16AA724E2204330400BE6862 /* Register */,
 			);
 			path = Modules;
@@ -245,6 +261,7 @@
 		16AA72522204335200BE6862 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				163F71DB22070171004A8D8E /* PickerCell */,
 				165F90A02205C3BB0080E0D9 /* ImageCell */,
 				16AA726F22046A5600BE6862 /* ActionButtonCell */,
 				16AA72632204342100BE6862 /* CollectionViewCell */,
@@ -433,6 +450,7 @@
 			files = (
 				16AA7259220433A500BE6862 /* DescTableViewCell.xib in Resources */,
 				16AA727322046A7400BE6862 /* ActionButtonTableViewCell.xib in Resources */,
+				163F71DF220701B3004A8D8E /* PickerTableViewCell.xib in Resources */,
 				16AA722A220432E000BE6862 /* LaunchScreen.storyboard in Resources */,
 				16AA7260220433EF00BE6862 /* TextFieldTableViewCell.xib in Resources */,
 				16AA7227220432E000BE6862 /* Assets.xcassets in Resources */,
@@ -471,6 +489,7 @@
 				16AA727522046A8C00BE6862 /* ActionButtonCellViewModel.swift in Sources */,
 				16AA726B2204374400BE6862 /* BaseViewModel.swift in Sources */,
 				16AA725B220433B900BE6862 /* DescCellViewModel.swift in Sources */,
+				163F71E1220701D9004A8D8E /* PickerViewModel.swift in Sources */,
 				16AA72692204348700BE6862 /* CollectionViewCellModel.swift in Sources */,
 				16AA72812204D1E400BE6862 /* BaseCollectionCellViewModel.swift in Sources */,
 				16AA72782204C67900BE6862 /* BaseCollectionViewCell.swift in Sources */,
@@ -488,6 +507,7 @@
 				16AA726E2204669500BE6862 /* RegisterModel.swift in Sources */,
 				16AA7258220433A500BE6862 /* DescTableViewCell.swift in Sources */,
 				163F71DA2206496B004A8D8E /* TagModel.swift in Sources */,
+				163F71DE220701B3004A8D8E /* PickerTableViewCell.swift in Sources */,
 				16AA72512204334300BE6862 /* RegisterViewModel.swift in Sources */,
 				16AA7220220432DE00BE6862 /* AppDelegate.swift in Sources */,
 			);
