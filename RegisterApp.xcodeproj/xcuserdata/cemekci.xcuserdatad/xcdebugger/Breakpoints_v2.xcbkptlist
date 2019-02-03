@@ -10,75 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RegisterApp/Modules/Cells/CollectionViewCell/CollectionViewTableViewCell.swift"
-            timestampString = "570881211.1904809"
+            timestampString = "570883523.114712"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "collectionView(_:didSelectItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionViewCell.swift"
-            timestampString = "570881211.190818"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "setup(viewModel:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/CollectionViewCellModel.swift"
-            timestampString = "570881070.116008"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "tagModels"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionCellViewModel.swift"
-            timestampString = "570881211.191487"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "tagModel"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionViewCell.swift"
-            timestampString = "570881211.191757"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "setup(viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -89,14 +25,62 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionViewCell.swift"
-            timestampString = "570881211.192127"
+            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/CollectionViewTableViewCell.swift"
+            timestampString = "570883523.115093"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionViewCell.swift"
+            timestampString = "570883523.115163"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
             landmarkName = "setup(viewModel:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RegisterApp.TagCollectionViewCell.setup(viewModel: RegisterApp.BaseCollectionCellViewModel) -&gt; ()"
+                  moduleName = "RegisterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cemekci/Documents/Innova/Eg%CC%86itim/untitled%20folder/RegisterApp/RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionViewCell.swift"
+                  timestampString = "570883316.766657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "1805">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in RegisterApp.TagCollectionViewCell.setup(viewModel: RegisterApp.BaseCollectionCellViewModel) -&gt; ()"
+                  moduleName = "RegisterApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cemekci/Documents/Innova/Eg%CC%86itim/untitled%20folder/RegisterApp/RegisterApp/Modules/Cells/CollectionViewCell/Cells/TagCell/TagCollectionViewCell.swift"
+                  timestampString = "570883316.769197"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

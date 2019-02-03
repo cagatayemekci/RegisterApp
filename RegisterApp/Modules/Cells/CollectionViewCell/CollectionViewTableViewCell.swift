@@ -49,9 +49,9 @@ class CollectionViewTableViewCell: BaseTableViewCell {
     override func setup(viewModel: BaseViewModel) {
         guard let vModel = viewModel as? CollectionViewCellModel else {return}
         self.collectionViewViewModel = vModel
-        setupVM()
         self.collectionViewViewModel?.tagModels = vModel.tagModels
-        
+        self.tagCollectionView.reloadData()
+        setupVM()
     }
 }
 
@@ -68,16 +68,16 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         if let cell = cell as? BaseCollectionViewCell {
             cell.setup(viewModel: rowViewModel)
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("You selected cell #\(indexPath.item)!")
         let rowViewModel = collectionViewViewModel?.tagModels[indexPath.row]
-        
         if let model = rowViewModel as? TagCollectionCellViewModel{
             model.tagModel?.isSelected = true
         }
+        rowViewModel?.cellPressed?()
+        
     }
 }

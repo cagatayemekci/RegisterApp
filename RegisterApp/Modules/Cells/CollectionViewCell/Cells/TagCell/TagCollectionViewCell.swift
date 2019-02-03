@@ -12,6 +12,7 @@ class TagCollectionViewCell: BaseCollectionViewCell {
     
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var tagLabel: UILabel!
+    var tagColletionVModel:TagCollectionCellViewModel?
     override func awakeFromNib() {
         super.awakeFromNib()
         setupBackView()
@@ -27,8 +28,6 @@ class TagCollectionViewCell: BaseCollectionViewCell {
     
     override func setup(viewModel: BaseCollectionCellViewModel) {
         guard let vModel = viewModel as? TagCollectionCellViewModel else {return}
-        self.tagLabel.text = vModel.tagModel?.name
-        self.isSelected = vModel.tagModel?.isSelected ?? false
         vModel.tagTextChange = {[weak self] in
             guard  let self = self else {
                 return
@@ -53,7 +52,7 @@ class TagCollectionViewCell: BaseCollectionViewCell {
                 self.tagLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             }
         }
-        
-        
+        tagColletionVModel = vModel
+        tagColletionVModel?.tagModel = vModel.tagModel
     }
 }

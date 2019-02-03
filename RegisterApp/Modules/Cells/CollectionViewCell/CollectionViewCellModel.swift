@@ -26,7 +26,6 @@ class CollectionViewCellModel:BaseViewModel {
         self.tagModels = tagModels
     }
     
-    
     func cellIdentifier(for viewModel: BaseCollectionCellViewModel) -> String {
         switch viewModel {
         case is AddCollectionCellViewModel:

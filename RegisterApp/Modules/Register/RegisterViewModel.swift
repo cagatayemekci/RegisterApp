@@ -127,6 +127,7 @@ class RegisterViewModel {
         for tag in tags {
             baseCollectionCellViewModel.append(TagCollectionCellViewModel(tagModel: tag))
         }
+        baseCollectionCellViewModel.append(AddCollectionCellViewModel(addTagText: "Add +", cellPressed: cellPressed))
         return baseCollectionCellViewModel
     }
 }
