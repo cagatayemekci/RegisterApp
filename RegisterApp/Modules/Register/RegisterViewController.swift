@@ -22,12 +22,12 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
         registerTableView.estimatedRowHeight = 85.0
         registerTableView.rowHeight = UITableView.automaticDimension
-        registerTableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
-        registerTableView.register(UINib(nibName: "DescTableViewCell", bundle: nil), forCellReuseIdentifier: "DescTableViewCell")
-        registerTableView.register(UINib(nibName: "ActionButtonTableViewCell", bundle: nil), forCellReuseIdentifier: "ActionButtonTableViewCell")
-        registerTableView.register(UINib(nibName: "CollectionViewTableViewCell", bundle: nil), forCellReuseIdentifier: "CollectionViewTableViewCell")
-        registerTableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
-        registerTableView.register(UINib(nibName: "PickerTableViewCell", bundle: nil), forCellReuseIdentifier: "PickerTableViewCell")
+        registerTableView.register(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: TextFieldTableViewCell.cellIdentifier())
+        registerTableView.register(UINib(nibName: "DescTableViewCell", bundle: nil), forCellReuseIdentifier: DescTableViewCell.cellIdentifier())
+        registerTableView.register(UINib(nibName: "ActionButtonTableViewCell", bundle: nil), forCellReuseIdentifier: ActionButtonTableViewCell.cellIdentifier())
+        registerTableView.register(UINib(nibName: "CollectionViewTableViewCell", bundle: nil), forCellReuseIdentifier: CollectionViewTableViewCell.cellIdentifier())
+        registerTableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: ImageTableViewCell.cellIdentifier())
+        registerTableView.register(UINib(nibName: "PickerTableViewCell", bundle: nil), forCellReuseIdentifier: PickerTableViewCell.cellIdentifier())
         setupSkillsViewController()
         setupVM()
         registerViewModel.createModelArray()
@@ -49,7 +49,11 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         registerViewModel.tableVeiewReload = {[weak self] in
             guard let self = self else {return}
-            self.registerTableView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                self.registerTableView.reloadData()
+            }
+            
         }
         
         registerViewModel.endEditing = {[weak self] in
@@ -71,11 +75,14 @@ class RegisterViewController: UIViewController {
     }
     
     fileprivate func showAlert(title:String, msg:String){
-        let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            print("Okay'd")
-        }))
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else {return}
+            let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                print("Okay'd")
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

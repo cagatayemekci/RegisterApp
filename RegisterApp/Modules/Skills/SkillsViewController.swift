@@ -72,7 +72,9 @@ extension SkillsViewController: UICollectionViewDelegate, UICollectionViewDataSo
         print("You selected cell #\(indexPath.item)!")
         guard let rowViewModel = skillsViewModel.tagModels[indexPath.row] as? TagCollectionCellViewModel else {return}
         if let model = rowViewModel.tagModel {
-            skillsViewModel.addTags(tag: model )
+            if !skillsViewModel.selectedTags.contains(model){
+               skillsViewModel.addTags(tag: model )
+            }
         }
     }
 }
